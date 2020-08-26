@@ -1,6 +1,7 @@
 const path = require('path');
 const http = require('http');
 const express = require('express');
+const dotenv = require('dotenv');
 const socketio = require('socket.io');
 const {formatMessage} = require('./utils/messages');
 const {userJoin,getCurrentUser,userLeave,getEntepriseUsers} = require('./utils/users');
@@ -12,6 +13,7 @@ const io = socketio(server);
 //Set Static Folder
 app.use(express.static(path.join(__dirname, 'public')));
 
+dotenv.config({path:'./config.env'});
 
 const botName  = 'GoPad Admin';
 //Run when a client is contact
